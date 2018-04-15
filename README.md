@@ -1,5 +1,5 @@
 # Quinela Mundial 2018
-
+[![CircleCI](https://circleci.com/gh/quinela2018/quin_frontend.svg?style=svg)](https://circleci.com/gh/quinela2018/quin_frontend)
 This README outlines the details of collaborating on this Ember application.
 A short introduction of this app could easily go here.
 
