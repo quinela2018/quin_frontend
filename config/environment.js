@@ -48,6 +48,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
+    ENV.apiHost = 'https://quin-frontend.herokuapp.com/';
     ENV['ember-cli-mirage'] = {
       enabled: true
     };
