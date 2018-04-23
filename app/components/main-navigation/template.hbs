@@ -1,0 +1,14 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      {{link-to 'Home' 'index' classNames='navbar-brand'}}
+    </div>
+
+    {{#if session.isAuthenticated}}
+      {{logout-button}}
+      <p class="navbar-text pull-right">Signed in as {{name}}</p>
+    {{else}}
+      {{link-to 'Login' 'login' class="btn btn-success navbar-btn navbar-right"}}
+    {{/if}}
+  </div>
+</nav>
