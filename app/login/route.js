@@ -8,7 +8,7 @@ export default Route.extend(UnauthenticatedRouteMixin, {
     doLogin(identification, password) {
       this.get('session')
         .authenticate('authenticator:oauth2', identification, password)
-        .then(() => { this.transitionTo('test'); })
+        .then(() => { this.transitionTo('home'); })
         .catch((reason) => { this.set('errorMessage', reason.error); });
     }
   }

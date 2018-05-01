@@ -1,0 +1,12 @@
+body {
+  font-family: 'Basic', sans-serif;
+  margin-bottom: 60px;
+  background-color: $base-white;
+  background-image: url('/assets/images/body_bg.jpg');
+  background-repeat: repeat-x;
+  background-position: center 0;
+}
+
+.container-bg {
+  background-color: $base-white;
+}

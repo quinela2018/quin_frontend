@@ -1,3 +1,15 @@
 @import "ember-bootstrap/bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Basic');
+@import "ember-modal-dialog/ember-modal-structure";
+@import "ember-modal-dialog/ember-modal-appearance";
+@import "colors";
+@import "base";
 @import "loading";
 @import "nav";
+@import "landing-page";
+@import "modal";
+@import "footer";
+@import "buttons";
+@import "home";
+@import "reglamento";

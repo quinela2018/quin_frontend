@@ -1,14 +1,15 @@
-<nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      {{link-to 'Home' 'index' classNames='navbar-brand'}}
-    </div>
+<header>
+  <nav class="navbar sticky-top navbar-expand-md">
+    {{link-to 'Inicio' 'home' classNames='navbar-brand'}}
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        {{fa-icon "bars" style="color:white"}}
+      </button>
 
-    {{#if session.isAuthenticated}}
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      </ul>
+      <a class="nav-link">Hola, {{name}}</a>
       {{logout-button}}
-      <p class="navbar-text pull-right">Signed in as {{name}}</p>
-    {{else}}
-      {{link-to 'Login' 'login' class="btn btn-success navbar-btn navbar-right"}}
-    {{/if}}
-  </div>
-</nav>
+    </div>
+  </nav>  
+</header>

@@ -1,4 +1,26 @@
-{{main-navigation}}
-<div class="container">
-  {{outlet}}
-</div>
+{{notification-container position="top-right"}}
+{{#if showHome}}
+  {{main-navigation userInformation=session.data.authenticated.info}}
+  <main class="container">
+    <div class="wrap-container">
+      {{outlet}}
+    </div>
+  </main>
+  {{footer-section}}
+{{else}}
+  <div class="container">
+    <div class="landing-wrap">
+      <div class="col col-12 main-title">
+        Quinela Mundial FIFA 2018
+      </div>
+      <div class="col col-12">
+        <button name="register" class="btn btn-outline-primary" onclick={{action "showRegisterAction"}}>Registrarse</button>
+        <button name="login" class="btn btn-primary" onclick={{action "showLoginAction"}}>Ingreso</button>
+      </div>
+    </div>
+
+  </div>
+{{/if}}
+
+{{register-modal showRegister=showRegister user=user onRegister=(action "registerAction")}}
+{{login-modal showLogin=showLogin onLogin=(action "loginAction")}}
