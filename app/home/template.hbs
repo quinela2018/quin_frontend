@@ -3,23 +3,17 @@
     {{link-to 'Reglamento' 'readme' class="btn-outline-primary menu-option"}}
   </div>
   <div class="col-sm-12 col-md-6 col-lg-4">
-    <button class="btn-outline-primary menu-option">
-          test 1
-        </button>
+    {{link-to 'Puntuaciones' 'positions' class="btn-outline-primary menu-option"}}
   </div>
   <div class="col-sm-12 col-md-6 col-lg-4">
-    <button class="btn-outline-primary menu-option">
-          test 1
-        </button>
+    {{link-to 'Registrar marcadores' 'games' class="btn-outline-primary menu-option"}}
   </div>
-  <div class="col-sm-12 col-md-6 col-lg-4">
-    <button class="btn-outline-primary menu-option">
-          test 1
-        </button>
-  </div>
-  <div class="col-sm-12 col-md-6 col-lg-4">
-    <button class="btn-outline-primary menu-option">
-          test 1
-        </button>
-  </div>
+  {{#if sessionAccount.account.admin}}
+    <div class="col-sm-12 col-md-6 col-lg-4">
+      {{link-to 'Adm. Usuarios' 'users' class="btn-outline-primary menu-option"}}
+    </div>
+    <div class="col-sm-12 col-md-6 col-lg-4">
+      {{link-to 'Adm. Marcadores' 'scores' class="btn-outline-primary menu-option"}}
+    </div>
+  {{/if}}
 </div>

@@ -1,3 +1,5 @@
+import Response from 'ember-cli-mirage/response';
+
 export default function() {
   // this.urlPrefix = '';    // make this `http://localhost:8080`, for example, if your API is on a different server
   // this.timing = 400;      // delay for each request, automatically set to 0 during testing
@@ -15,27 +17,25 @@ export default function() {
       "uid": undefined,
       "info": undefined
     }
-    if(username === 'test1234') {
-      token.uid = "12345";
+    const user = users.findBy({email: username});
+    if(user != null) {
+      token.uid = user.attrs.id;
       token.info = {
-        "firstName": "test",
-        "lastName": "test",
-        "email": "test@test.com"
+        "firstName": user.attrs.firstName,
+        "lastName": user.attrs.lastName,
+        "email": user.attrs.email,
+        "admin": user.attrs.admin
       };
       return token;
     } else {
-      const user = users.findBy({email: username});
-      if(user != null) {
-        token.uid = user.attrs.id;
-        token.info = {
-          "firstName": user.attrs.firstName,
-          "lastName": user.attrs.lastName,
-          "email": user.attrs.email
-        };
-        return token;
-      }
+      return new Response(422, {some: 'header', 'Content-Type': 'application/json'}, {
+      errors: [{
+        status: 422,
+        title: 'email is invalid',
+        description: 'email cannot be blank'
+      }]
+    });
     }
-    return false;
   });
   this.post('/revoke', () => {
     return true;
@@ -47,7 +47,16 @@ export default function() {
   // });
   this.get('/authors');
   this.get('/authors/:id');
-  this.get('/users');
+  this.get('/users', ({ users }, request) => {
+    let response;
+    let qp = JSON.parse(JSON.stringify(request.queryParams));
+    if(qp && qp.email) {
+      response = users.findBy({email: qp.email});
+    } else {
+      response = users.all();
+    }
+    return response;
+  });
   this.get('/users/:id');
   this.post('/users', 'user');
 }

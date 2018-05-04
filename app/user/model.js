@@ -8,6 +8,9 @@ export default Model.extend({
   lastName: attr('string'),
   phone: attr('string'),
   password: attr('string'),
+  pendingApproval: attr('boolean', { defaultValue: false }),
+  admin: attr('boolean', { defaultValue: false }),
+  pendingPayment: attr('boolean', { defaultValue: false }),
   username: computed('firstName', 'lastName', function() {
     return `${this.firstName} ${this.lastName}`;
   }),
