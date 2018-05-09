@@ -1,0 +1,29 @@
+<div class="table-responsive-sm">
+  <table class="table table-striped">
+    <thead class="users-thead">
+      <tr>
+        <th>Usuario</th>
+        <th>Correo</th>
+        <th>Teléfono</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each users as |user|}}
+        <tr>
+          <th>{{user.username}}</th>
+          <th>{{user.email}}</th>
+          <th>{{user.phone}}</th>
+          <th>
+            {{#unless user.pendingApproval}}
+              <button type="button" name="button">Aprobar</button>
+            {{/unless}}
+            {{#unless user.pendingPayment}}
+              <button type="button" name="button">Bloquear</button>
+            {{/unless}}
+          </th>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>

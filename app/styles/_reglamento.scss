@@ -3,3 +3,13 @@
 	height: 70vh;
 	border: 3px solid #cccccc;
 }
+
+.readme-wrapper {
+	overflow: scroll;
+	color: black;
+	border: solid black 1px;
+	background-color: $base-white;
+}
+.readme-content {
+	margin: 20px;
+}
